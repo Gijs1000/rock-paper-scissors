@@ -1,0 +1,1 @@
+In this project I will recreate the classic game rock paper, scissors. This is to help me get familiar with sripting in JavaScript.
