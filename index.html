@@ -1,5 +1,34 @@
 <!DOCTYPE html>
 
+<head>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="name">
+            <p id="title">Rock, Paper, Scissors</p>
+            <p id="subtitle">Choose wisely...</p>
+        </div>
+        <div id = "buttons">
+            <button class="button" id="rock">
+                <img src="https://i.pinimg.com/600x315/8b/28/35/8b2835c3d41d5d29f2f7726ce0c43dd8.jpg">
+            </button>
+            <button class="button" id="paper">
+                <img src="https://i.pinimg.com/originals/a0/57/61/a05761651e8c9cbc6b5c6696d125f888.jpg">
+            </button>
+            <button class="button" id="scissors">
+                <img src="https://www.pngkit.com/png/full/64-646868_scissors-drawing-ciseaux-de-couture-hair-cutting-shears.png">
+            </button>
+        </div>
+        <div id="result">
+            
+        </div>
+
+    </div>
+</body>
+
 <script>
     //Calculates a random number between min and max (both inclusive)
     function getRndInteger(min, max) {
@@ -30,7 +59,7 @@
     //Compare scores
     function compareScores(playerChoice, computerChoice) { 
         if (playerChoice === computerChoice) { //if both have same outcome, go back to beginning
-         itsATie(playerChoice);
+            itsATie(playerChoice);
         } else if (playerChoice === 'rock') {
             if (computerChoice === 'scissors') { //if player picks rock and computer picks scissors, player wins
                 playerWins(playerChoice, computerChoice);
@@ -85,11 +114,4 @@
         compareScores(playerChoice, computerSelection);
     }
 
-
-    //Plays five rounds in a row.
-    function game() {
-        for(i = 0; i < 5; i++) {
-            playOneRound();
-        }
-    }
 </script>

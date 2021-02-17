@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Chlorinar;
+    src: url(Chlorinar-WyWz.ttf);
+}
+
+body {
+    margin: 0px;
+}
+
+.container {
+    position: fixed;
+    width: 99%;
+    height: 99%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#name {
+    display: block;
+    width: fit-content;
+    margin: 200px auto 50px auto;
+}
+
+#name #title {
+    font-family: Chlorinar;
+    font-size: 64px;
+    color: darkgreen;
+    margin-bottom: 20px;
+}
+
+#name #subtitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    height: fit-content;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    width: 130px;
+    border: 1px solid darkslategray;
+    border-radius: 10px;
+    background-color: white;
+}
+
+img {
+    max-width: 90%;
+    height: auto;
+}
+
+#result {
+    width: 60%;
+    height: 61px;
+    margin: 100px auto auto auto;
+    border: 1px dotted black;
+    border-radius: 5px;
+    background-color: rgb(31, 29, 29);
+}
+
+#result p {
+    font-family: 'Courier New', Courier, monospace;
+    color:chartreuse;
+    margin-block-start: 1.25em;
+    margin-block-end: 1.25em;
+    margin-inline-start: 1rem;
+}
