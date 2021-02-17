@@ -8,8 +8,8 @@
 <body>
     <div class="container">
         <div id="name">
-            <p id="title">Rock, Paper, Scissors</p>
-            <p id="subtitle">Choose wisely...</p>
+            <h1 id="title">Rock, Paper, Scissors</p>
+            <h2 id="subtitle">Choose wisely...</p>
         </div>
         <div id = "buttons">
             <button class="button" id="rock">
@@ -22,15 +22,40 @@
                 <img src="https://www.pngkit.com/png/full/64-646868_scissors-drawing-ciseaux-de-couture-hair-cutting-shears.png">
             </button>
         </div>
-        <div id="result">
-            
+        <div id="result" class='result'>
+            <p id='winnerText'></p>
+        </div>
+
+        <div id='score'>
+            <div class='tile' id='playerScore'>
+                <p>0</p>
+            </div>
+            <div class='tile' id='computerScore'>
+                <p>0</p>
+            </div>
         </div>
 
     </div>
 </body>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 
+
+    //Checks which button is clicked and plays a round with that selection.
     const rock = document.querySelector('#rock');
     rock.addEventListener('click', () => playOneRound('rock'));
 
@@ -92,19 +117,47 @@
         }
     }
 
+    //Variables used to display results
+    const textOutput = document.querySelector('#winnerText');
+    const result = document.querySelector('#result');
+
+    //Variables used to display score
+    let playerScore = 0;
+    let computerScore = 0;
+    const playerScoreDisplay = document.querySelector('#playerScore p');
+    const computerScoreDisplay = document.querySelector('#computerScore p');
+    let gameWon = false;
+
     //What happens when the player wins
     function playerWins(playerChoice, computerChoice) {
-        alert(`The player chose ${playerChoice} and the computer chose ${computerChoice}. The player wins!`)
+        playerScore += 1;
+        playerScoreDisplay.textContent = playerScore.toString();
+        if (playerScore >= 5 && !gameWon) {
+            textOutput.textContent = `The player has won the game!`;
+            gameWon = true;
+        } else if (!gameWon) {
+            textOutput.textContent = `The player chose ${playerChoice} and the computer chose ${computerChoice}. The player wins!`;
+        }
+        
     }
 
-    //What happens when the player loses
+    //What happens when the computer wins
     function computerWins(playerChoice, computerChoice) {
-        alert(`The player chose ${playerChoice} and the computer chose ${computerChoice}. The computer wins!`)
+        computerScore += 1;
+        computerScoreDisplay.textContent = computerScore.toString();
+        if (computerScore >= 5 && !gameWon) {
+            textOutput.textContent = `The computer has won the game!`;
+            gameWon = true;
+        } else if (!gameWon) {
+            textOutput.textContent = `The player chose ${playerChoice} and the computer chose ${computerChoice}. The computer wins!`;
+        }
     }
 
-    //What happens when it's a tie
+    //What happens when it's a tie  
     function itsATie(playerChoice) {
-        alert(`Both the player and computer chose ${playerChoice}, it's a tie!`)
+        if (!gameWon) {
+        textOutput.textContent = `Both the player and computer chose ${playerChoice}, it's a tie!`;
+        }
     }
 
     //Plays one round of rock, paper, scissors
