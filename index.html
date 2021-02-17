@@ -30,6 +30,17 @@
 </body>
 
 <script>
+
+    const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => playOneRound('rock'));
+
+    const paper = document.querySelector('#paper');
+    paper.addEventListener('click', () => playOneRound('paper'));
+
+    const scissors = document.querySelector('#scissors');
+    scissors.addEventListener('click', () => playOneRound('scissors'))
+
+
     //Calculates a random number between min and max (both inclusive)
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -97,9 +108,8 @@
     }
 
     //Plays one round of rock, paper, scissors
-    function playOneRound() {
+    function playOneRound(playerChoice) {
         //Gathering user input
-        let playerChoice = prompt("What is your choice?"); //gather user input
         playerchoice = playerChoice.toLowerCase(); //make it case insensitive
         if (!isValidInput(playerChoice)) { //checks if it's a valid input
             alert(`That's not a valid value. Try again`);
